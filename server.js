@@ -10,15 +10,13 @@ const app = express()
 
 app.use(bodyParser.json())
 
-app.get('/health', api.getHealth)
-
 app.use(middleware.handleError)
 app.use(middleware.notFound)
 
 const server = app.listen(PORT, () =>
-  console.log(`Server listening on port ${PORT}`)
+	console.log(`Server listening on port ${PORT}`)
 )
 
 if (require.main !== module) {
-  module.exports = server
+	module.exports = server
 }
